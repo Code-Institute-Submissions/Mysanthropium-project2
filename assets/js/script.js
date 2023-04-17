@@ -1,4 +1,4 @@
-let questions = [
+const questions = [
     {
         question: "How many band members had The Beatles?",
         answers: [
@@ -91,6 +91,40 @@ let questions = [
     }
 ];
 
-let questionElement = document.getElementById("question");
-let answers = document.getElementById("answers");
-let nextQuestion = document.getElementById("next-question");
+const questionElement = document.getElementById("question");
+const answerButtons = document.getElementById("answers");
+const nextButton = document.getElementById("next-question");
+
+let currentQuestionIndex = 0;
+let score = 0;
+
+function startQuiz() {
+    currentQuestionIndex = 0;
+    score = 0;
+    nextQuestion.innerHTML = "Next Question";
+    showQuestion();
+}
+
+function showQuestion() {
+    resetState();
+    let currentQuestion = questions[currentQuestionIndex];
+    let questionNo = currentQuestionIndex + 1;
+    questionElement.innerHTML = questionNo + ". " + currentQuestion.
+    question;
+
+    currentQuestion.answers.forEach(answer => {
+        const button = document.createElement("button");
+        button.innerHTML = answer.text;
+        button.classList.add("btn");
+        answerButtons.appendChild(button);
+    });
+}
+
+startQuiz();
+
+function resetState() {
+    nextButton.style.display = "none";
+    while(answerButtons.firstChild) {
+        answerButtons.removeChild(answerButtons.firstChild);
+    }
+}
