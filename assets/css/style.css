@@ -75,3 +75,15 @@ body {
 .incorrect {
     background: rgb(236, 68, 68);
 }
+
+#current-score {
+    box-sizing: border-box;
+    background: whitesmoke;
+    font-weight: 600;
+    width: 30%;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    text-align: left;
+    border: 1px solid black;
+}
