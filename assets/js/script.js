@@ -1,28 +1,38 @@
-/**
- * Store elements in these variables
- */
-const quizContainer = document.getElementById('quiz-box');
-const resultsContainer = document.getElementById('results');
-const submitButton = document.getElementById('submit');
+function buildQuiz(){
+    const output = [];
 
-function quizGame() {
+    myQuestions.forEach(
+        (currentQuestion, questionNumber) => {
 
+            const answers = [];
+
+            for(letter in currentQuestion.answers){
+
+                answers.push(
+                    `<label>
+                    <input type="radio" name="question${questionNumber}" value="${letter}">
+                    ${letter} : ${currentQuestion.answers[letter]}
+                    </label>`
+                );
+            }
+
+            output.push(
+                `<div class="question"> ${currentQuestion.question} </div>
+                <div class="answers"> ${answers.join('')} </div>`
+            );
+        }
+    );
+
+    quizContainer.innerHTML = output.join('');
 }
 
 function showResults() {
 
 }
 
-/**
- * Display quiz
- */
-quizGame();
-
-/**
- * submit button, show results
- */
-submitButton.addEventListener('click', showResults);
-
+const quizContainer = document.getElementById('quiz');
+const resultsContainer = document.getElementById('results');
+const submitButton = document.getElementById('submit');
 /**
  * Quiz questions
  */
@@ -46,4 +56,16 @@ const myQuestions = [
         },
         correctAnswer: "d"
     }
-]
+];
+
+/**
+ * Start Quiz
+ */
+buildQuiz();
+
+/**
+ * submit button, show results
+ */
+submitButton.addEventListener('click', showResults);
+
+
