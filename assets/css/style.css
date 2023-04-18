@@ -9,7 +9,7 @@ body {
     background: whitesmoke;
 }
 
-.quiz-box {
+#quiz-box {
     background: rgb(221, 219, 96);
     width: 90%;
     max-width: 600px;
@@ -18,18 +18,18 @@ body {
     padding: 30px;
 }
 
-.quiz-box h1 {
+#quiz-box h1 {
     font-size: 60px;
     font-weight: 600;
     border-bottom: 2px solid whitesmoke;
     padding-bottom: 30px;
 }
 
-.quiz-box {
+#quiz-box {
     padding: 45px;
 }
 
-.quiz-box h2 {
+#quiz-box h2 {
     font-size: 35px;
     font-weight: 600;
     padding: 10px;
