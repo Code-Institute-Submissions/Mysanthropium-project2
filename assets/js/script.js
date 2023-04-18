@@ -1,3 +1,6 @@
+/**
+ * List of quiz questions
+ */
 const questions = [
     {
         question: "How many band members had The Beatles?",
@@ -91,13 +94,22 @@ const questions = [
     }
 ];
 
+/**
+ * Variables used
+ */
 const questionElement = document.getElementById("question");
 const answerButtons = document.getElementById("answer-buttons");
 const nextButton = document.getElementById("next-btn");
 
+/**
+ * Variables to keep the question index and score
+ */
 let currentQuestionIndex = 0;
 let score = 0;
 
+/**
+ * Start function to reset the score and show Next button
+ */
 function startQuiz() {
     currentQuestionIndex = 0;
     score = 0;
@@ -105,6 +117,9 @@ function startQuiz() {
     showQuestion();
 }
 
+/**
+ * Display questions with numbers, add button function and check if answer is correct/incorrect
+ */
 function showQuestion() {
     resetState();
     let currentQuestion = questions[currentQuestionIndex];
@@ -123,6 +138,9 @@ function showQuestion() {
     });
 }
 
+/**
+ * Resets the previous question function and removes the next button if no answer is selected
+ */
 function resetState() {
     nextButton.style.display = "none";
     while(answerButtons.firstChild) {
@@ -130,6 +148,9 @@ function resetState() {
     }
 }
 
+/**
+ * Check if the selected answer is correct then add point, and display next button.
+ */
 function selectAnswer(e) {
     const selectedBtn = e.target;
     const isCorrect = selectedBtn.dataset.correct === "true";
@@ -148,6 +169,9 @@ function selectAnswer(e) {
     nextButton.style.display = "block";
 }
 
+/**
+ * Display your score and play again button to restart quiz
+ */
 function showScore() {
     resetState();
     questionElement.innerHTML = `You scored ${score} out of ${questions.length}!`;
@@ -155,6 +179,9 @@ function showScore() {
     nextButton.style.display = "block";
 }
 
+/**
+ * If there's no questions left, show score
+ */
 function handleNextButton() {
     currentQuestionIndex++;
     if(currentQuestionIndex < questions.length) {
@@ -164,6 +191,9 @@ function handleNextButton() {
     }
 }
 
+/**
+ * If there's no questions left, restart the quiz
+ */
 nextButton.addEventListener("click", () => {
     if(currentQuestionIndex < questions.length){
         handleNextButton();
