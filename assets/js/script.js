@@ -1,3 +1,6 @@
+/**
+ * Quiz function and forEach loop
+ */
 function buildQuiz(){
     const output = [];
 
@@ -25,9 +28,31 @@ function buildQuiz(){
 
     quizContainer.innerHTML = output.join('');
 }
-
+/**
+ * Results function with a forEach loop and results color accordingly
+ */
 function showResults() {
+    const answerContainers = quizContainer.querySelectorAll('.answer');
+    let numCorrect = 0;
+    myQuestions.forEach( (currentQuestion, questionNumber) => {
+        /**
+         * find the selected answer in our HTML
+         */
+        const answerContainer = answerContainers[questionNumber];
+        const selector = `input[name=question${questionNumber}]:checked`;
+        const userAnswer = (answerContainer.querySelector(selector) || {}).value;
+        /**
+         * Using if/else statement to check if answer is correct or incorrect
+         */
+        if(userAnswer === currentQuestion.correctAnswer){
+            numCorrect++;
+            answerContainers[questionNumber].style.color = 'lightgreen';
+        } else{
+            answerContainers[questionNumber].style.color = 'red';
+        }
+    });
 
+    resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
 }
 
 const quizContainer = document.getElementById('quiz');
