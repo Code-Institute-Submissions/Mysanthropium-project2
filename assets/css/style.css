@@ -23,6 +23,7 @@ body {
     font-weight: 600;
     border-bottom: 2px solid whitesmoke;
     padding-bottom: 30px;
+    text-align: center;
 }
 
 .quiz {
@@ -30,7 +31,7 @@ body {
 }
 
 .quiz h2 {
-    font-size: 35px;
+    font-size: 25px;
     font-weight: 600;
     padding: 10px;
 }
