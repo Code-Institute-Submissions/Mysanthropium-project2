@@ -102,7 +102,7 @@ const answerButtons = document.getElementById("answer-buttons");
 const nextButton = document.getElementById("next-btn");
 
 /**
- * Countdown timer, the first one I had didnt reset on each question, so I had some great help from tutor support so get it sorted out!
+ * Countdown timer, the first one I had didnt reset on each question, so I had some great help from tutor support to get it sorted out!
  */
 let timer = document.getElementById("timer-box");
 let timeLeft = 30;
@@ -219,7 +219,7 @@ function handleNextButton() {
         timer.style.display = "block";
     } else {
         showScore();
-        timer.style.display = "none";
+        timer.style.display = "none"; // Hide timer on the show score page
     }
 }
 
