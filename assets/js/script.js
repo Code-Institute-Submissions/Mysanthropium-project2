@@ -102,6 +102,23 @@ const answerButtons = document.getElementById("answer-buttons");
 const nextButton = document.getElementById("next-btn");
 
 /**
+ * Countdown timer
+ */
+let timer = document.getElementById("timer-box");
+let timeLeft = 30;
+let timerId = setInterval(countdown, 1000);
+function countdown() {
+    if (timeLeft == 0) {
+        clearTimeout(timerId);
+        doSomething();
+    } else {
+        timer.innerHTML = timeLeft + ' seconds remaining';
+        timeLeft--;
+    }
+}
+
+
+/**
  * Variables to keep the question index and score
  */
 let currentQuestionIndex = 0;
