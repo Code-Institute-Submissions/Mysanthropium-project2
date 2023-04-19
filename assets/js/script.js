@@ -105,10 +105,10 @@ const nextButton = document.getElementById("next-btn");
  * Countdown timer, this code I found on google after quite some research to find one that works.
  */
 let timer = document.getElementById("timer-box");
-let timeLeft = 60;
+let timeLeft = 5;
 let timerId = setInterval(countdown, 1000);
 function countdown() {
-    if (timeLeft === 0) {
+    if (timeLeft === -1) {
         clearTimeout(timerId);
         doSomething();
     } else {
