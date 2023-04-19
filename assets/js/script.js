@@ -95,20 +95,20 @@ const questions = [
 ];
 
 /**
- * Variables used
+ * Variables 
  */
 const questionElement = document.getElementById("question");
 const answerButtons = document.getElementById("answer-buttons");
 const nextButton = document.getElementById("next-btn");
 
 /**
- * Countdown timer
+ * Countdown timer, this code I found on google after quite some research to find one that works.
  */
 let timer = document.getElementById("timer-box");
-let timeLeft = 30;
+let timeLeft = 60;
 let timerId = setInterval(countdown, 1000);
 function countdown() {
-    if (timeLeft == 0) {
+    if (timeLeft === 0) {
         clearTimeout(timerId);
         doSomething();
     } else {
@@ -119,6 +119,8 @@ function countdown() {
 
 
 /**
+ * This basic quiz I found on Youtube after a bit of research, it does pretty much exactly what I was looking for, I made a couple of small changes to it.
+ * Mostly because I wanted a timer and more questions.
  * Variables to keep the question index and score
  */
 let currentQuestionIndex = 0;
