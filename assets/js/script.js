@@ -120,7 +120,7 @@ function countdown() {
 
 /**
  * This basic quiz I found on Youtube after a bit of research, it does pretty much exactly what I was looking for, I made a couple of small changes to it.
- * Mostly because I wanted a timer and more questions.
+ * Mostly because I wanted a timer, more questions and some different variable names.
  * Variables to keep the question index and score
  */
 let currentQuestionIndex = 0;
