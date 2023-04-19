@@ -102,20 +102,28 @@ const answerButtons = document.getElementById("answer-buttons");
 const nextButton = document.getElementById("next-btn");
 
 /**
- * Countdown timer, this code I found on google after quite some research to find one that works.
+ * Countdown timer, the first one I had didnt reset on each question, so I had some great help from tutor support so get it sorted out!
  */
 let timer = document.getElementById("timer-box");
-let timeLeft = 5;
-let timerId = setInterval(countdown, 1000);
-function countdown() {
-    if (timeLeft === -1) {
-        clearTimeout(timerId);
-        doSomething();
-    } else {
+let timeLeft = 30;
+let timerId = setInterval(startTimer, 1000);
+function startTimer(duration) {
+    timeLeft = duration;
+    if (timerId) {
+        clearInterval(timerId);
+        
+    } timerId = setInterval (() => {
+        if (timeLeft === -1) {
+            clearTimeout (timerId);
+            doSomething();
+        }
+     else {
         timer.innerHTML = timeLeft + ' seconds remaining';
         timeLeft--;
     }
+}, 1000);
 }
+
 
 
 /**
@@ -134,6 +142,7 @@ function startQuiz() {
     score = 0;
     nextButton.innerHTML = "Next";
     showQuestion();
+    timer.style.display = "block";
 }
 
 /**
@@ -155,6 +164,7 @@ function showQuestion() {
         }
         button.addEventListener("click", selectAnswer);
     });
+    startTimer(30);
 }
 
 /**
@@ -196,6 +206,7 @@ function showScore() {
     questionElement.innerHTML = `You scored ${score} out of ${questions.length}!`;
     nextButton.innerHTML = "Play Again";
     nextButton.style.display = "block";
+    
 }
 
 /**
@@ -205,8 +216,10 @@ function handleNextButton() {
     currentQuestionIndex++;
     if(currentQuestionIndex < questions.length) {
         showQuestion();
+        timer.style.display = "block";
     } else {
         showScore();
+        timer.style.display = "none";
     }
 }
 
