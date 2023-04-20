@@ -98,3 +98,11 @@ body {
     width: 35%;
     height: 35%;
 }
+
+/* Media queries for phones */ 
+
+@media (min-width: 320px) and (max-width: 480px) {
+    #timer-box {
+        width: 65%;
+    }
+  }
