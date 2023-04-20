@@ -124,7 +124,16 @@ function startTimer(duration) {
 }, 1000);
 }
 
+/**
+ * Image function for each question
+ */
+let images = ["assets/images/beatles.jpg", "assets/images/foofighters.jpg", "assets/images/lemmy.webp", "assets/images/abba.jpg", "assets/images/abba.jpg", "assets/images/metallica.jpg", "assets/images/metallica.jpg", "assets/images/flea.jpg", "assets/images/nirvana.jpg", "assets/images/lars.jpg"];
 
+
+function goNextImage(counter) {
+
+    document.getElementById("image-box").src = images[counter];
+}
 
 /**
  * This basic quiz I found on Youtube after a bit of research, it does pretty much exactly what I was looking for, I made a couple of small changes to it.
@@ -165,6 +174,7 @@ function showQuestion() {
         button.addEventListener("click", selectAnswer);
     });
     startTimer(30);
+    goNextImage(currentQuestionIndex);
 }
 
 /**
