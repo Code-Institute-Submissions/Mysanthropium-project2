@@ -115,7 +115,7 @@ function startTimer(duration) {
     } timerId = setInterval (() => {
         if (timeLeft === -1) {
             clearTimeout (timerId);
-            doSomething();
+            
         }
      else {
         timer.innerHTML = timeLeft + ' seconds remaining';
@@ -243,6 +243,6 @@ nextButton.addEventListener("click", () => {
     } else {
         startQuiz();
     }
-})
+});
 
 startQuiz();
