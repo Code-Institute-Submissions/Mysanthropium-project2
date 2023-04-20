@@ -214,6 +214,7 @@ function selectAnswer(e) {
 function showScore() {
     resetState();
     questionElement.innerHTML = `You scored ${score} out of ${questions.length}!`;
+    questionElement.style.textAlign = 'center';
     nextButton.innerHTML = "Play Again";
     nextButton.style.display = "block";
     
